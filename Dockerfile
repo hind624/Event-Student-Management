@@ -1,8 +1,11 @@
-FROM openjdk:17.0.2-jdk-slim
+FROM openjdk:17-alpine
+WORKDIR /app
 
-COPY target/student-0.0.1-SNAPSHOT.jar student-0.0.1-SNAPSHOT.jar
 
-EXPOSE 3000
+
+COPY target/student-0.0.1-SNAPSHOT.jar /app/student-0.0.1-SNAPSHOT.jar
+
 
 # Execute the application with the built jar
-ENTRYPOINT ["java", "-jar", "student-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "student-0.0.1-SNAPSHOT.jar"]
+EXPOSE 3000
